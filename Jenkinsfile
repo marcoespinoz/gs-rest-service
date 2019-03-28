@@ -12,7 +12,7 @@ node {
    stage('Deployment') {
       if (isUnix()) {
          
-         sh "'${mvnHome}/bin/mvn' clean install"
+         sh "cd complete/ &&  '${mvnHome}/bin/mvn' clean install"
       }
    }
 }
