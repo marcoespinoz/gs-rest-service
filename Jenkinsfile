@@ -23,6 +23,9 @@ node {
          sh "docker push 519901771307.dkr.ecr.us-west-2.amazonaws.com/reto:'${VERSION}'"
       }
    }
+   stage ('Deploy to eC2') {
+    build job: 'deployment', parameters: [[$class: 'StringParameterValue', name: 'VERSION', value: '${VERSION}']]
+   }
 }
  /*
    stage('Build docker image') {
