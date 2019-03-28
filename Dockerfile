@@ -12,6 +12,6 @@ ENV MAVEN_HOME /usr/share/maven
 
 VOLUME /root/.m2
 
-COPY java-maven-junit-helloworld-2.0-SNAPSHOT.jar /home/java-maven-junit-helloworld-2.0-SNAPSHOT.jar
+COPY gs-rest-service-0.1.0.jar /tmp/gs-rest-service-0.1.0.jar
 CMD ["mvn"] 
 CMD ["java","-jar","/home/java-maven-junit-helloworld-2.0-SNAPSHOT.jar"]
