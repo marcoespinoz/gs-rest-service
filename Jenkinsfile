@@ -6,8 +6,7 @@ node {
    }
    stage('JUnit Test') {
       if (isUnix()) {
-         sh "cd complete/"
-         sh "'${mvnHome}/bin/mvn' clean test complete/"         
+         sh "cd complete/ && '${mvnHome}/bin/mvn' clean test"         
       }
    }
    stage('Deployment') {
