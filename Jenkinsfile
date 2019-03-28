@@ -15,6 +15,7 @@ node {
          sh "'${mvnHome}/bin/mvn' clean install"
       }
    }
+}
  /*
    stage('Build docker image') {
       if (isUnix()) {
