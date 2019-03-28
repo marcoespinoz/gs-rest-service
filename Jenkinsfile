@@ -5,23 +5,23 @@ node {
       git 'https://github.com/marcoespinoz/gs-rest-service.git'
    }
    stage('JUnit Test') {
-      if (isUnix()) {
+      
          sh "cd complete/ && '${mvnHome}/bin/mvn' clean test"         
-      }
+      
    }
    stage('Deployment') {
-      if (isUnix()) {
+      
          
          sh "cd complete/ &&  '${mvnHome}/bin/mvn' clean install"
-      }
+      
    }
    stage('Build docker image') {
-      if (isUnix()) {
+      
          sh "\$(aws ecr get-login --no-include-email --region us-west-2)"
          sh "cp Dockerfile /var/lib/jenkins/.m2/repository/org/springframework/gs-rest-service/0.1.0/"
          sh "docker build -t 519901771307.dkr.ecr.us-west-2.amazonaws.com/reto:'${VERSION}' /var/lib/jenkins/.m2/repository/org/springframework/gs-rest-service/0.1.0/"
          sh "docker push 519901771307.dkr.ecr.us-west-2.amazonaws.com/reto:'${VERSION}'"
-      }
+      
    }
    stage ('Deploy to eC2') {
     build job: 'deployment', parameters: [[$class: 'StringParameterValue', name: 'VERSION', value: '${VERSION}']]
