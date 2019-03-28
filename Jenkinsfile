@@ -24,7 +24,7 @@ node {
       
    }
    stage ('Deploy to eC2') {
-    build job: 'deployment', parameters: [[$class: 'StringParameterValue', name: 'VERSION', value: ${VERSION}]]
+    build job: 'deployment', parameters: [[$class: 'StringParameterValue', name: 'VERSION', value: "${VERSION}"]]
    }
 }
  /*
