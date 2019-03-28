@@ -1,5 +1,5 @@
 # Dockerfile
-FROM 519901771307.dkr.ecr.us-west-2.amazonaws.com/reto:v1
+FROM 519901771307.dkr.ecr.us-west-2.amazonaws.com/reto:v2
 
 ENV MAVEN_VERSION 3.3.9
 
