@@ -15,6 +15,13 @@ node {
          sh "cd complete/ &&  '${mvnHome}/bin/mvn' clean install"
       }
    }
+   stage('Build docker image') {
+      if (isUnix()) {
+         sh "cp Dockerfile /var/lib/jenkins/.m2/repository/org/springframework/gs-rest-service/0.1.0/"
+         sh "sh "docker build -t 519901771307.dkr.ecr.us-west-2.amazonaws.com/reto:v2 /var/lib/jenkins/.m2/repository/org/springframework/gs-rest-service/0.1.0/"
+         
+      }
+   }
 }
  /*
    stage('Build docker image') {
