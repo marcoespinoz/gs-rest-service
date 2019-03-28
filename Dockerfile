@@ -15,3 +15,5 @@ VOLUME /root/.m2
 COPY gs-rest-service-0.1.0.jar /tmp/gs-rest-service-0.1.0.jar
 CMD ["mvn"] 
 CMD ["java","-jar","/tmp/gs-rest-service-0.1.0.jar"]
+
+EXPOSE 8080
