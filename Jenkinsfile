@@ -18,7 +18,7 @@ node {
    stage('Build docker image') {
       if (isUnix()) {
          sh "cp Dockerfile /var/lib/jenkins/.m2/repository/org/springframework/gs-rest-service/0.1.0/"
-         sh "docker build -t 519901771307.dkr.ecr.us-west-2.amazonaws.com/reto:v2 /var/lib/jenkins/.m2/repository/org/springframework/gs-rest-service/0.1.0/"
+         sh "docker build -t 519901771307.dkr.ecr.us-west-2.amazonaws.com/reto:${VERSION} /var/lib/jenkins/.m2/repository/org/springframework/gs-rest-service/0.1.0/"
          
       }
    }
